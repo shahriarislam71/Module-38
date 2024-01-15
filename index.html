@@ -23,14 +23,24 @@
     <main>
         <!-- displaying load data section -->
         <section>
+            <!-- div for the spinner -->
+            <div id="spinner" class="d-flex justify-content-center d-none mt-3">
+                <div class="spinner-border color" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
             <div id="loadData" class="row row-cols-1 row-cols-md-3 g-4 mt-5">
                 
             </div>
             <div class="text-center">
-                <button id="showMore" onclick="seeMoreBtn()" class="sortButton mt-4 border-0 text-white mb-4">See More</button>
+                <!-- show more btn  -->
+                <button id="showMore" onclick="seeMoreBtn()" class="sortButton mt-2 border-0 text-white mb-4">See More</button>
+                <!-- show less btn  -->
                 <button id="showLess" onclick="seeLessBtn()" class="sortButton mt-4 border-0 text-white d-none mb-4">See Less</button>
             </div>
+            
         </section>
+        
     </main>
 
     <!-- bootstrap script part  -->

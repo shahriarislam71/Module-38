@@ -8,6 +8,8 @@ const dataLoad = async (value) => {
 
 // displaying load data 
 const displayLoadData = (data,value) => {
+    const spinner = document.getElementById('spinner')
+    spinner.classList.remove('d-none')
     const loadDataDiv = document.getElementById('loadData')
     const showMorebtn = document.getElementById('showMore')
     const showLessbtn = document.getElementById('showLess')
@@ -52,6 +54,7 @@ const displayLoadData = (data,value) => {
         </div>
         `
         loadDataDiv.appendChild(createDiv)
+        spinner.classList.add('d-none')
     });
 }
 
