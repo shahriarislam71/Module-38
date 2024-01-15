@@ -1,15 +1,24 @@
 // data load
-const dataLoad = async () => {
+const dataLoad = async (value) => {
     const url = `https://openapi.programming-hero.com/api/ai/tools`
     const data = await fetch(url)
     const res = await data.json()
-    displayLoadData(res.data.tools)
+    displayLoadData(res.data.tools,value)
 }
 
 // displaying load data 
-const displayLoadData = (data) => {
+const displayLoadData = (data,value) => {
     const loadDataDiv = document.getElementById('loadData')
-    data = data.slice(0,6)
+    const showMorebtn = document.getElementById('showMore')
+    const showLessbtn = document.getElementById('showLess')
+    if(value){
+        data = data.slice(0,value)
+    }
+    else{
+        showLessbtn.classList.remove('d-none')
+        showMorebtn.classList.add('d-none')
+    }
+    loadDataDiv.innerHTML = ''
     data.forEach(element => {
         console.log(element)
         const createDiv = document.createElement('div')
@@ -25,7 +34,8 @@ const displayLoadData = (data) => {
                 3. ${element.features[2] ? element.features[2] : "No data found"}
                 </p>
                 <hr>
-                
+                <h5 class="card-title mt-3">${element.name ? element.name : "Name is not found"}</h5>
+                <p class='card-title'>${element.published_in ? element.published_in : "Date is not found"}</p>
             </div>
         </div>
         `
@@ -33,6 +43,8 @@ const displayLoadData = (data) => {
     });
 }
 
+const seeMoreBtn = () =>{
+    dataLoad()
+}
 
-
-dataLoad()
+dataLoad(6)
