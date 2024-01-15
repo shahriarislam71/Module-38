@@ -13,6 +13,8 @@ const displayLoadData = (data,value) => {
     const showLessbtn = document.getElementById('showLess')
     if(value){
         data = data.slice(0,value)
+        showLessbtn.classList.add('d-none')
+        showMorebtn.classList.remove('d-none')
     }
     else{
         showLessbtn.classList.remove('d-none')
@@ -34,8 +36,18 @@ const displayLoadData = (data,value) => {
                 3. ${element.features[2] ? element.features[2] : "No data found"}
                 </p>
                 <hr>
-                <h5 class="card-title mt-3">${element.name ? element.name : "Name is not found"}</h5>
-                <p class='card-title'>${element.published_in ? element.published_in : "Date is not found"}</p>
+                <div class='d-sm-flex justify-content-between align-items-center'>
+                    <div>
+                        <h5 class="card-title ">${element.name ? element.name : "Name is not found"}</h5>
+                        <p class='card-title'>
+                        <i class="fa-regular fa-calendar-days calender"></i>
+                        ${element.published_in ? element.published_in : "Date is not found"}
+                        </p>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-arrow-right-long arrowIcon rounded-circle"></i>
+                    </div>
+                </div>
             </div>
         </div>
         `
@@ -43,8 +55,14 @@ const displayLoadData = (data,value) => {
     });
 }
 
+// see more btn 
 const seeMoreBtn = () =>{
     dataLoad()
+}
+
+// see less btn 
+const seeLessBtn = ()=>{
+    dataLoad(6)
 }
 
 dataLoad(6)
