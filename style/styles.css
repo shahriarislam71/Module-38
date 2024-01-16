@@ -44,3 +44,9 @@
     font-size: 16px;
     font-weight: 700;
 }
+
+.imgbtn{
+    background-color: #EB5757;
+    color: #FFF;
+    border-radius: 16px;
+}
