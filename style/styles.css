@@ -3,14 +3,44 @@
     background: #EB5757;
     padding: 20px 28px;
 }
-.arrowIcon{
+
+.arrowIcon {
     color: #EB5757;
     background-color: #FEF7F7;
     padding: 13px;
 }
-.calender{
+
+.calender {
     color: #585858;
 }
-.color{
+
+.color {
     color: #EB5757;
+}
+
+.basicClass {
+    padding: 23px;
+    border-radius: 16px;
+    background: #FFF;
+}
+
+.part-1 {
+    border-radius: 16px;
+    border: 1px solid #EB5757;
+    background-color: rgba(235, 87, 87, 0.05);
+}
+.color1{
+    color: #03A30A;
+    font-size: 16px;
+    font-weight: 700;
+}
+.color2{
+    color: #F28927;
+    font-size: 16px;
+    font-weight: 700;
+}
+.color3{
+    color: #EB5757;
+    font-size: 16px;
+    font-weight: 700;
 }

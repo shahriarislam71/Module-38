@@ -47,7 +47,7 @@ const displayLoadData = (data,value,x) => {
                             </p>
                         </div>
                         <div>
-                            <i class="fa-solid fa-arrow-right-long arrowIcon rounded-circle" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i>
+                            <i onclick='loadModalData("${element.id}")' class="fa-solid fa-arrow-right-long arrowIcon rounded-circle" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i>
                         </div>
                     </div>
                 </div>
@@ -87,5 +87,37 @@ document.getElementById('sortButtonid').addEventListener('click',function(){
     dataLoad(0,true)
 })
 
+
+// loadmodaldata
+const loadModalData = async(id) =>{
+    const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`
+    const data = await fetch(url)
+    const res = await data.json()
+    displayLoadModalData(res.data)
+}
+
+const displayLoadModalData = (data) =>{
+    console.log(data)
+    const cardDescription = document.getElementById('card-description')
+    cardDescription.innerText = data.description
+    const column1 = document.getElementById('col-1')
+    column1.innerHTML = `
+    <p>${data.pricing[0].price === '0' || data.pricing[0].price === 'No cost' ? "Free of cost/" : data.pricing[0].price} <br>
+    ${data.pricing[0].plan ? data.pricing[0].plan : "Free of cost/"}
+    </p>
+    `
+    const column2 = document.getElementById('col-2')
+    column2.innerHTML = `
+    <p>${data.pricing[1].price === '0' || data.pricing[1].price === 'No cost' ? "Free of cost/" : data.pricing[1].price}
+    ${data.pricing[1].plan ? data.pricing[1].plan : "Free of cost/"}
+    </p>
+    `
+    const column3 = document.getElementById('col-3')
+    column3.innerHTML = `
+    <p>${data.pricing[2].price === '0' || data.pricing[2].price === 'No cost' ? "Free of cost/" : data.pricing[2].price}
+    ${data.pricing[2].plan ? data.pricing[2].plan : "Free of cost/"}
+    </p>
+    `
+}
 
 dataLoad(6,false)
