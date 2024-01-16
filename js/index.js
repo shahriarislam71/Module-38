@@ -102,20 +102,20 @@ const displayLoadModalData = (data) => {
     cardDescription.innerText = data.description
     const column1 = document.getElementById('col-1')
     column1.innerHTML = `
-    <p>${data.pricing[0].price === '0' || data.pricing[0].price === 'No cost' ? "Free of cost/" : data.pricing[0].price} <br>
-    ${data.pricing[0].plan ? data.pricing[0].plan : "Free of cost/"}
+    <p>${data.pricing === null ? 'Free of cost': data.pricing[0].price === '0' || data.pricing[0].price === 'No cost' ? "Free of cost/" : data.pricing[0].price} <br>
+    ${data.pricing === null ? 'Basic' : data.pricing[0].plan ? data.pricing[0].plan : "Free of cost/"}
     </p>
     `
     const column2 = document.getElementById('col-2')
     column2.innerHTML = `
-    <p>${data.pricing[1].price === '0' || data.pricing[1].price === 'No cost' ? "Free of cost/" : data.pricing[1].price}
-    ${data.pricing[1].plan ? data.pricing[1].plan : "Free of cost/"}
+    <p>${data.pricing === null ? 'Free of cost': data.pricing[1].price === '0' || data.pricing[1].price === 'No cost' ? "Free of cost/" : data.pricing[1].price}
+    ${data.pricing === null ? 'Pro' : data.pricing[1].plan ? data.pricing[1].plan : "Free of cost/"}
     </p>
     `
     const column3 = document.getElementById('col-3')
     column3.innerHTML = `
-    <p>${data.pricing[2].price === '0' || data.pricing[2].price === 'No cost' ? "Free of cost/" : data.pricing[2].price}
-    ${data.pricing[2].plan ? data.pricing[2].plan : "Free of cost/"}
+    <p>${data.pricing === null ? 'Free of cost': data.pricing[2].price === '0' || data.pricing[2].price === 'No cost' ? "Free of cost/" : data.pricing[2].price}
+    ${data.pricing === null ? 'Enterprise' : data.pricing[2].plan ? data.pricing[2].plan : "Free of cost/"}
     </p>
     `
     // for features
@@ -135,13 +135,23 @@ const displayLoadModalData = (data) => {
     integrationId.innerHTML = `
     <h1>Integration</h1><br>
     `
-    for (let i of data.integrations) {
-        const integration = document.createElement('ul')
-        integration.classList.add('integrations')
-        integration.innerHTML = `
-        <li>${i}</li>
-        `
-        integrationId.appendChild(integration)
+    if(data.integrations === null){
+       integrationId.innerHTML = `
+       <h1>Integration</h1><br>
+       <ul>
+            <li>No Data Found</li>
+       </ul>
+       ` 
+    }
+    else{
+        for (let i of data.integrations) {
+            const integration = document.createElement('ul')
+            integration.classList.add('integrations')
+            integration.innerHTML = `
+            <li>${i}</li>
+            `
+            integrationId.appendChild(integration)
+        }
     }
 
     // for part-2
@@ -153,15 +163,19 @@ const displayLoadModalData = (data) => {
     <div class="card h-100">
       <img  src="${data.image_link[0]}" class="card-img-top" alt="...">
       <div class='card-img-overlay'>
-          <button class='position-absolute top-25 end-0 imgbtn border-0'>${data.accuracy.score*100}% accuracy</button>
+          <button id='imgButton' class='position-absolute top-25 end-0 imgbtn border-0 d-none'>${data.accuracy.score*100}% accuracy</button>
       </div>
       <div class="card-body">
-        <h5 class="card-title">${data.input_output_examples[0].input}</h5>
-        <p class="card-text">${data.input_output_examples[0].output}</p>
+        <h5 class="card-title">${data.input_output_examples === null ? 'No Data Found': data.input_output_examples[0].input}</h5>
+        <p class="card-text">${data.input_output_examples === null ? 'No Data Found' : data.input_output_examples[0].output}</p>
       </div>
     </div>
     `
     mainDiv.appendChild(newDiv)
+    if (data.accuracy.score != null){
+        const imgButton = document.getElementById('imgButton')
+        imgButton.classList.remove('d-none')
+    }
 }
 
 dataLoad(6, false)
