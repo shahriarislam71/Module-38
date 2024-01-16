@@ -47,7 +47,7 @@ const displayLoadData = (data,value,x) => {
                             </p>
                         </div>
                         <div>
-                            <i class="fa-solid fa-arrow-right-long arrowIcon rounded-circle"></i>
+                            <i class="fa-solid fa-arrow-right-long arrowIcon rounded-circle" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i>
                         </div>
                     </div>
                 </div>
