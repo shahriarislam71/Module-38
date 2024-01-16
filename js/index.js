@@ -96,6 +96,7 @@ const loadModalData = async (id) => {
     displayLoadModalData(res.data)
 }
 
+// for displaying modal data 
 const displayLoadModalData = (data) => {
     console.log(data)
     const cardDescription = document.getElementById('card-description')
@@ -154,7 +155,7 @@ const displayLoadModalData = (data) => {
         }
     }
 
-    // for part-2
+    // for modal part-2
     const mainDiv = document.getElementById('part-2')
     const newDiv = document.createElement('div')
     newDiv.classList.add('col')

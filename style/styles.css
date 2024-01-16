@@ -1,15 +1,18 @@
+/* code for sort by date button  */
 .sortButton {
     border-radius: 16px;
     background: #EB5757;
     padding: 20px 28px;
 }
 
+/* arrow icon button for modal   */
 .arrowIcon {
     color: #EB5757;
     background-color: #FEF7F7;
     padding: 13px;
 }
 
+/* calender icon class  */
 .calender {
     color: #585858;
 }
@@ -18,35 +21,49 @@
     color: #EB5757;
 }
 
+/* code for modal's part-1 div  */
 .basicClass {
     padding: 23px;
     border-radius: 16px;
     background: #FFF;
 }
 
+/* modal part-1  */
 .part-1 {
     border-radius: 16px;
     border: 1px solid #EB5757;
     background-color: rgba(235, 87, 87, 0.05);
 }
+/* modal part-1 div-1-basic div */
 .color1{
     color: #03A30A;
     font-size: 16px;
     font-weight: 700;
 }
+
+/* modal part-1 div-2- pro-div */
 .color2{
     color: #F28927;
     font-size: 16px;
     font-weight: 700;
 }
+/* modal part-1 div-2-enterprise div  */
 .color3{
     color: #EB5757;
     font-size: 16px;
     font-weight: 700;
 }
 
+/* accuracy button inside the image  */
 .imgbtn{
     background-color: #EB5757;
     color: #FFF;
     border-radius: 16px;
+}
+
+/* for modal close Button  */
+.closeBtn{
+    background-color:#F28927;
+    width: 25px;
+    height: 25px;
 }
