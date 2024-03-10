@@ -1,4 +1,4 @@
-// data load
+// Here we will load our data
 const dataLoad = async (value, x) => {
     const url = `https://openapi.programming-hero.com/api/ai/tools`
     const data = await fetch(url)
